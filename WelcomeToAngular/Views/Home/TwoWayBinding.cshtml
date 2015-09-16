@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html ng-app="DataBinding">
+<head>
+    <title>Movies</title>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/ngApp/app.js"></script>
+    <script src="~/Scripts/ngApp/controllers.js"></script>
+</head>
+<body>
+    <div>
+        <label>
+            Customer Name:
+            <input ng-model="message.customerName" />
+        </label>
+    </div>
+    <div>
+        <label>
+            Customer Insult:
+            <input ng-model="message.customerInsult" />
+        </label>
+    </div>
+
+    <p>
+        Dear {{message.customerName}},
+        <br />
+        I <i>sincerely</i> apologize for my last communication when I called
+        you a {{message.customerInsult}}. Clearly, you are not a
+        <i>{{message.customerInsult}}</i>. My apologies.
+        <br />
+        -- Customer Service
+    </p>
+</body>
+</html>

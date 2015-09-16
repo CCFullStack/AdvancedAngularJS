@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html ng-app="DataBinding">
+<head>
+    <title>Movies</title>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/ngApp/app.js"></script>
+    <script src="~/Scripts/ngApp/controllers.js"></script>
+</head>
+<body ng-controller="FavoriteColorController as favorite">
+    <h2>What is your favorite color?</h2>
+    <button ng-click="favorite.pickColor('red')">Red</button>
+    <button ng-click="favorite.pickColor('green')">Green</button>
+    <button ng-click="favorite.pickColor('blue')">Blue</button>
+
+    <h2>Your favorite color is:</h2>
+    <output style="color:{{favorite.color}}">This is some text</output>
+</body>
+</html>

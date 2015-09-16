@@ -1,0 +1,19 @@
+﻿<form ng-submit="food.add()">
+    <input ng-model="food.name" placeholder="Name" />
+    <input ng-model="food.price" placeholder="Price" />
+    <input type="submit" value="Submit" />
+</form>
+<ul>
+    <li ng-repeat="item in food.items">
+        <div ng-if="food.updateItem !== item">
+            {{item.Id}} - {{item.Name}} - {{item.Price}}
+            <a href="#/" ng-click="food.updateItem = item">Update</a>
+            <a href="#/" ng-click="food.remove(item)">Delete</a>
+        </div>
+        <div ng-if="food.updateItem === item">
+            <input ng-model="food.updateItem.Name" />
+            <input ng-model="food.updateItem.Price" />
+            <a href="#/" ng-click="food.update(item)">Save</a>
+        </div>
+    </li>
+</ul>

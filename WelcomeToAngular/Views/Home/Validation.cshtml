@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html ng-app="Val">
+<head>
+    <title>Calculator</title>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/ngApp/app.js"></script>
+    <script src="~/Scripts/ngApp/controllers.js"></script>
+</head>
+<body>
+    <form novalidate name="employeeForm">
+        <div>
+            <label>
+                First Name:
+                <input name="firstName" type="text" required ng-model="employee.firstName"/>
+            </label>
+            <span class="error" ng-show="employeeForm.firstName.$touched && employeeForm.firstName.$error.required">
+                First name is required
+            </span>
+        </div>
+        
+        <div>
+            <label>
+                Last Name:
+                <input name="lastName" type="text" required ng-model="employee.lastName" />
+            </label>
+            <span class="error" ng-show="employeeForm.lastName.$touched && employeeForm.lastName.$error.required">
+                Last name is required
+            </span>
+        </div>
+        <div>
+            <label>
+                Age:
+                <input name="age" type="number" required ng-model="employee.age" />
+            </label>
+            <span class="error" ng-show="employeeForm.age.$touched && employeeForm.age.$error.required">
+                Age is required
+            </span>
+            <span class="error" ng-show="employeeForm.age.$touched && employeeForm.age.$error.number">
+                Age must be a number
+            </span>
+        </div>
+        <div>
+            <label>
+                Employment Type:
+                <select name="type" required ng-model="employee.type">
+                    <option value="fullTime">Full Time</option>
+                    <option value="partTime">Part Time</option>
+                </select>
+            </label>
+            <span class="error" ng-show="employeeForm.type.$touched && employeeForm.type.$error.required">
+                Employment type is required
+            </span>
+        </div>
+        <div ng-show="employee.type == 'fullTime'">
+            <label>
+                Yearly Salary:
+                <input name="yearlySalary" type="number"
+                       ng-required="employee.type == 'fullTime'"
+                       ng-model="employee.salary" />
+            </label>
+            <span class="error" ng-show="employeeForm.yearlySalary.$touched && employeeForm.yearlySalary.$error.required">
+                Yearly Salary is required
+            </span>
+            <span class="error" ng-show="employeeForm.yearlySalary.$touched && employeeForm.yearlySalary.$error.number">
+                Yearly Salary must be a number
+            </span>
+        </div>
+        <div ng-show="employee.type == 'partTime'">
+            <label>
+                Hourly Salary:
+                <input name="hourlySalary" type="number"
+                       ng-required="employee.type == 'partTime'"
+                       ng-model="employee.salary" />
+            </label>
+            <span class="error" ng-show="employeeForm.hourlySalary.$touched && employeeForm.hourlySalary.$error.required">
+                Hourly Salary is required
+            </span>
+            <span class="error" ng-show="employeeForm.hourlySalary.$touched && employeeForm.hourlySalary.$error.number">
+                Hourly Salary must be a number
+            </span>
+        </div>
+        <div><input type="submit" value="Submit" ng-disabled="employeeForm.$invalid"/></div>
+    </form>
+</body>
+</html>

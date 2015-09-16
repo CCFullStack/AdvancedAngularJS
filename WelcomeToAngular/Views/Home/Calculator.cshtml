@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html ng-app="DataBinding">
+<head>
+    <title>Calculator</title>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/ngApp/app.js"></script>
+    <script src="~/Scripts/ngApp/controllers.js"></script>
+    <style>
+        .ng-pristine {
+            background-color: salmon;
+        }
+        .ng-touched {
+            background-color: lightblue;
+        }
+        .ng-dirty {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body ng-controller="CalculatorController as calc">
+    <div>
+        <input ng-model="calc.num1" class="form-control"/>
+        +
+        <input ng-model="calc.num2" class="form-control"/>
+        =
+        {{calc.result}}
+    </div>
+</body>
+</html>
